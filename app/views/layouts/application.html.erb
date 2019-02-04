@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Foodme</title>
+    <%= csrf_meta_tags %>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+   <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+      <div class="container">
+	  
+        
+		<%= link_to("foodme", root_path, :class => "navbar-brand js-scroll-trigger") %>
+		
+        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+		  
+            <li class="nav-item mx-0 mx-lg-1">
+				<%= link_to "Get Started", choices_choose_path, :class => 'nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger'  %>
+              
+            </li>
+			
+			<% if user_signed_in? %>
+			
+            
+			<li class="nav-item mx-0 mx-lg-1">
+			<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger'  %>
+			</li>
+			
+			<% else %>
+			
+            <li class="nav-item mx-0 mx-lg-1">
+			  <%= link_to "Sign In", new_user_session_path, :class => 'nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger'  %>              
+            </li>
+			<li class="nav-item mx-0 mx-lg-1">
+			 <%= link_to "Sign up", new_user_registration_path, :class => 'nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger'  %>              
+            </li>
+			
+			<% end %> 
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+	 
+  
+
+  
+    <%= yield %>
+	
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Location</h4>
+            <p class="lead mb-0">Canada
+              <br>Ontario</p>
+          </div>
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Around the Web</h4>
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-google-plus-g"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-linkedin-in"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-dribbble"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h4 class="text-uppercase mb-4">About Us</h4>
+            <p class="lead mb-0">Foodme is free to use
+              
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="copyright py-4 text-center text-white">
+      <div class="container">
+        <small>Copyright &copy; Your Website 2018</small>
+      </div>
+    </div>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-to-top d-lg-none position-fixed ">
+      <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+    </div>
+  </body>
+</html>

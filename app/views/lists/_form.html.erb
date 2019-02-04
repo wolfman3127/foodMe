@@ -1,0 +1,55 @@
+<div class="container">
+
+<h1>Hi
+<%= current_user.username %></h1><br>
+
+
+  
+<%= form_with(model: list, local: true) do |form| %>
+  <% if list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(list.errors.count, "error") %> prohibited this list from being saved:</h2>
+
+      <ul>
+      <% list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="div_id_name" class="form-group">
+  
+    <%= form.label :name, :class => "control-label col-md-4  requiredField"%>
+	 <div class="controls col-md-8 ">
+    <%= form.text_field :name, :class => "input-md  textinput textInput form-control", id: :list_name, placeholder: "example: lasagna"%>
+	</div>
+  </div>
+  
+    <div id="div_id_name" class="form-group">
+  
+    <%= form.label :ingredients, :class => "control-label col-md-4  requiredField"%>
+	 <div class="controls col-md-8 ">
+    <%= form.text_field :ingredients, :class => "input-md  textinput textInput form-control", id: :list_ingredients, placeholder: "example: cheese noodles sauce"%>
+	</div>
+  </div>
+  
+      <div id="div_id_name" class="form-group">
+  
+    <%= form.label :healthy, :class => "control-label col-md-4  requiredField"%>
+	 <div class="controls col-md-8 ">
+    <%= form.check_box :healthy, :class => "input-md  textinput textInput form-control", id: :list_healthy %>
+	</div>
+  </div>
+  
+  
+  <%= form.hidden_field :username, id: :liat_username, value: current_user.username %>
+  <%= form.hidden_field :email, id: :liat_username, value: current_user.email %>
+
+
+
+  <div class="btn btn-primar">
+    <%= form.submit :class => "btn btn btn-primary", value: "Add Meal" %>
+  </div>
+  </div>
+<% end %>

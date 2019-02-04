@@ -1,0 +1,9 @@
+<br><br><br><br><br><br><br><br><br><br><br><br><br><center>
+<% if user_signed_in? %>
+<%= link_to("Generate A Meal Prep", lists_path, :class => "btn btn-primary btn-xl") %>
+<%= link_to("Add Item To Meal Prep", new_list_path, :class => "btn btn-primary btn-xl") %>
+<%else%>
+please sign in
+<%end%>
+
+<br><br><br><br><br><br><br><br>
