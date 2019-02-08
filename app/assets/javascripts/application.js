@@ -13,6 +13,7 @@
 //= require jquery
 //= require rails-ujs.js
 //= require freelancer.min.js
+//= require bootstrap
 //= require bootstrap.bundle.min.js
 //= require jqBootstrapValidation.js
 //= require contact_me.js
