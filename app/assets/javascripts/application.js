@@ -16,5 +16,6 @@
 //= require bootstrap.bundle.min.js
 //= require jqBootstrapValidation.js
 //= require contact_me.js
+//= require popper.js
 //= require turbolinks
 //= require_tree .
