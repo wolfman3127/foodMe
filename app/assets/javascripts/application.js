@@ -10,12 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require jquery.min.js
+//= require jquery.easing.min.js
+//= require jquery.magnific-popup.min.js
 //= require rails-ujs.js
 //= require freelancer.min.js
 //= require bootstrap.bundle.min.js
-//= require jquery.easing.min.js
-//= require jquery.magnific-popup.min.js
 //= require jqBootstrapValidation.js
 //= require contact_me.js
 //= require turbolinks
