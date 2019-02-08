@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require rails-ujs.js
-//= require freelancer.js
 //= require bootstrap
 //= require bootstrap.bundle.min.js
 //= require jqBootstrapValidation.js
