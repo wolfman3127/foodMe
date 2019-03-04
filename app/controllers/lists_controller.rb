@@ -5,12 +5,35 @@ class ListsController < ApplicationController
   # GET /lists.json
   def index
     @lists = List.all
+	@menu = @lists.sample(7)
+	session[:pass_variable] = @menu
+  end
+  
+  def sendma      
+	@user = User.all
+	@email = current_user.email
+    @name = current_user.username	
+	@menu = session[:pass_variable]
+	ExampleMailer.sample_email(@email, @name, @menu).deliver  	
+  end
+  
+  def healthy
+  @lists = List.all
+  @menu = @lists.where(healthy: 'True')
+  end
+  
+  def email
+  @lists = List.all
   end
 
   # GET /lists/1
   # GET /lists/1.json
   def show
   end
+  
+ 
+  
+
 
   # GET /lists/new
   def new
@@ -65,6 +88,7 @@ class ListsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_list
       @list = List.find(params[:id])
+	 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

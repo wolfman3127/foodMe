@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @name %>
+
+
+<% @menu[0]['name'] %>
+<% day = ["Mon","Tues","Wed","Thurs","Fri","Sat","Sun"] %>
+
+<table border="1">
+  <thead>
+    <tr>
+	  <th>Day</th>
+      <th>Item</th>
+      <th>Ingredients</th>	  
+     
+    </tr>      
+  </thead>
+
+  <tbody>
+ 
+<%- @menu.each_with_index do |item, index| %>
+
+<tr> 
+    <td><%= day[index] %></td>
+    <td><%= item['name'] %></td>
+    <td><%= item['ingredients'] %> </td>
+
+</tr>
+
+<% end %>
+
+      
+    </p>
+  </body>
+</html>

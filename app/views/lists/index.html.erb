@@ -2,7 +2,8 @@
 
 <br><br><br><br><br><br>
 
-<% nameForEmail = Array.new %>
+<% @menu %>
+
 <% day = ["Mon","Tues","Wed","Thurs","Fri","Sat","Sun"] %>
 
 
@@ -22,7 +23,7 @@
   <tbody>
   
   
-     <% @lists.sample(7).each.with_index do |list, index| %>
+     <% @menu.each.with_index do |list, index| %>
 
     <% i= index %>
     <tr>
@@ -37,16 +38,12 @@
         <td><%= link_to 'Remove', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
 
-	<% nameForEmail[i] = list.name + ' ' + list.ingredients %>
+	
 
 		
     <% end %>
 	
-	<% x=0 %>
-	<% while x<=6 %>
-	<%= nameForEmail[x] %>
-	<% x= x +1 %>
-	<% end %>
+	
 
   </tbody>
 </table>
@@ -57,6 +54,8 @@
 <br><center>
 <%= link_to("Re-Roll", lists_path, :class => "btn btn-primary btn-m") %>
 <%= link_to("Add An Item", new_list_path, :class => "btn btn-primary btn-m") %>
-<%= link_to("Email Us This List", new_list_path, :class => "btn btn-primary btn-m") %>
+<%= link_to("Only Healthy", healthy_lists_path, :class => "btn btn-primary btn-m") %>
+<%= link_to("Email Us This List", email_lists_path, :class => "btn btn-primary btn-m") %>
+
 <br><br>
 
