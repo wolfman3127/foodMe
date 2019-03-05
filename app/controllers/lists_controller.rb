@@ -12,9 +12,14 @@ class ListsController < ApplicationController
   def sendma      
 	@user = User.all
 	@email = current_user.email
+	
+	@addemailsV = Addemail.all	
+	@addemails = @addemailsV.where(currentemail: @email).pluck(:extraemail)
+	
     @name = current_user.username	
 	@menu = session[:pass_variable]
-	ExampleMailer.sample_email(@email, @name, @menu).deliver  	
+	ExampleMailer.sample_email(@email, @name, @menu, @addemails).deliver  	
+	redirect_to (email_lists_path)
   end
   
   def healthy
@@ -24,6 +29,7 @@ class ListsController < ApplicationController
   
   def email
   @lists = List.all
+  @addemails = Addemail.all
   end
 
   # GET /lists/1

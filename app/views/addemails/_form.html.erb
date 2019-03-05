@@ -1,0 +1,30 @@
+<center>
+<%= form_with(model: addemail, local: true) do |form| %>
+  <% if addemail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(addemail.errors.count, "error") %> prohibited this addemail from being saved:</h2>
+
+      <ul>
+      <% addemail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :"Who Else?" %>
+    <%= form.text_field :extraemail, id: :addemail_extraemail, placeholder: "me@foodme.com"%>
+  </div>
+
+  
+    
+    
+	<%= form.hidden_field :currentemail, id: :addemail_currentemail, value: current_user.email %>
+  
+
+  <div class="actions">
+    
+	<%= form.submit :class => "btn btn btn-primary", value: "Add This Person" %>
+  </div>
+<% end %>

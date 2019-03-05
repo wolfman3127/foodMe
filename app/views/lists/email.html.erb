@@ -1,3 +1,26 @@
-<br><br><br><br><br><br>
-Send to: <%=current_user.email%>
+<br><br><br><br><br><br><center>
+<h3>Sending to: <%=current_user.email%><br> AND<br></h3>
+<table>
+  <thead>
+    <tr>
+      
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @addemails.each do |addemail| %>
+      <tr>
+        <td><%= addemail.extraemail %></td>
+        
+        
+        <td><%= link_to 'Edit', edit_addemail_path(addemail) %></td>
+        <td><%= link_to 'Destroy', addemail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<center>
+<%= link_to 'Add more people!', new_addemail_path, :class => 'btn btn-primary btn-m' %><br>
 <%= button_to "Send This List", sendma_lists_path, :class => 'btn btn-primary btn-m'  %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :addemails
   resources :lists do  
   get "email","healthy", on: :collection
   post :sendma, on: :collection, as: :sendma   

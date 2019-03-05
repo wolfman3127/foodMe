@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Extraemail:</strong>
+  <%= @addemail.extraemail %>
+</p>
+
+<p>
+  <strong>Currentemail:</strong>
+  <%= @addemail.currentemail %>
+</p>
+
+<%= link_to 'Edit', edit_addemail_path(@addemail) %> |
+<%= link_to 'Back', addemails_path %>

@@ -1,11 +1,13 @@
 class ExampleMailer < ApplicationMailer
 default from: "twfarley88@gmail.com"
 
-  def sample_email(email, name, menu)
+  def sample_email(email, name, menu, addemails)
    @email = email
    @name = name	
    @menu = menu
-
-    mail(to: @email, subject: 'Meal Prep')
+   @addemails = addemails
+   
+	@to = @addemails.map(&:inspect).join(', ')
+    mail(to: @email,bcc: @to, subject: 'Meal Prep')
   end
 end
